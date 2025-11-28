@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign Up</title>
+
+
+<style>
+body {
+    background: url('clouds.jpg');
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-box {
+    max-width: 380px;
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+input {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+button {
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    background: #82c7ff;
+    cursor: pointer;
+    font-weight: bold;
+}
+</style>
+</head>
+<link rel="stylesheet" href="style.css">
+<body>
+
+<div class="login-box">
+    <h2>Sign Up</h2>
+
+    <input id="regUser" type="text" placeholder="Username"><br>
+    <input id="regPass" type="password" placeholder="Password"><br>
+
+    <button id="signupBtn">Register</button>
+
+    <p>Already have an account? <a href="signin.html">Sign In</a></p>
+</div>
+
+
+<script>
+// MAKE SURE THIS IS **INSIDE** <script>
+document.getElementById("signupBtn").addEventListener("click", register);
+
+function register() {
+    const username = document.getElementById("regUser").value;
+    const password = document.getElementById("regPass").value;
+
+    if (!username || !password) {
+        alert("Please fill out all fields!");
+        return;
+    }
+
+    localStorage.setItem("username", username);
+    localStorage.setItem("password", password);
+
+    alert("Account created! You may now sign in.");
+    window.location.href = "signin.html";
+}
+</script>
+
+</body>
+</html>
